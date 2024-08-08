@@ -30,9 +30,12 @@ namespace DoorJam.Common.Players
             //handle player moving next to door
             if(IsNextToDoor(playerTile) && !isOnDoor)
             {
-                //Main.NewText("Next to door");
+                // 20% chance to jam your fingers
                 if(rnd.Next(0, 20) == 0)
-                Player.Hurt(PlayerDeathReason.ByCustomReason(Player.name + " jammed their finger in the door"), 10, 0, false, false, -1, true, 0f, 0f, 0f);
+                {
+                    Player.Hurt(PlayerDeathReason.ByCustomReason(Player.name + " jammed their finger in the door"), 10, 0, false, false, -1, true, 0f, 0f, 0f);
+                }
+
                 isOnDoor = true;
             }
 
